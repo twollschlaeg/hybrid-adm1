@@ -1,0 +1,10 @@
+{
+  "description": "The split network built on each reactor's calibrated parameters, each fold on its own per-fold calibration of its training reactors (the one MECH-CV uses; scripts/calibrate/calibrate_folds.py), so at zero output the hybrid is MECH-CV (exact_anchors: also where a calibrated degradability factor lies outside the logit band) and the comparison with it is fair.",
+  "correction": {"parametrization": "calibrated", "prune": true, "physics": [], "references": {},
+                 "exact_anchors": true},
+  "initial_state": "calibrated",
+  "spin_up_days": 30.0,
+  "split_network": true,
+  "calibration": "per-fold",
+  "keep_checkpoints": false
+}

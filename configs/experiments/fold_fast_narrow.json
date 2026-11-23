@@ -1,0 +1,12 @@
+{
+  "description": "As fold_calibrated_narrow, built on the fast-hydrolysis calibration (calibrate_folds.py --arrhenius --bound k_hyd_ch 0.1 2.88, in ADM1_BENCHMARKS_DIR) and scaling the rates by the same Arrhenius factors. With k_hyd_ch above the dilution rate, a temperature step gives the gas peak that comes back, and f_ch lies mid-range, where the network can still move it with the loading rate.",
+  "correction": {"parametrization": "calibrated", "prune": true, "physics": ["arrhenius"], "references": {},
+                 "corrected": ["f_ch", "k_hyd_ch"], "bound": 0.6931471805599453, "exact_anchors": true},
+  "initial_state": "calibrated",
+  "spin_up_days": 30.0,
+  "split_network": true,
+  "calibration": "per-fold",
+  "calibration_bounds": {"k_hyd_ch": [0.1, 2.88]},
+  "correction_penalty": 0.1,
+  "keep_checkpoints": false
+}

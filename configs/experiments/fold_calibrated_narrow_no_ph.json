@@ -1,0 +1,12 @@
+{
+  "description": "fold_calibrated_narrow for R2 and R3, with pH scored but not fitted. Both miss pH by a nearly constant offset, a large share of their loss when scaled by each reactor's small pH range, and the carbohydrate corrections cannot move it. R2 and R3 only: R4 has no pH output.",
+  "correction": {"parametrization": "calibrated", "prune": true, "physics": [], "references": {},
+                 "corrected": ["f_ch", "k_hyd_ch"], "bound": 0.6931471805599453, "exact_anchors": true},
+  "initial_state": "calibrated",
+  "spin_up_days": 30.0,
+  "split_network": true,
+  "calibration": "per-fold",
+  "correction_penalty": 0.1,
+  "keep_checkpoints": false,
+  "objective_weights": {"pH": 0.0}
+}

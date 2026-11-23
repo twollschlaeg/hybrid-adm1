@@ -1,0 +1,82 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hybrid-adm1"
+version = "1.0.0"
+description = "Universal Differential Equation models for the anaerobic digestion process under dynamic operating conditions"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+keywords = [
+    "anaerobic digestion",
+    "ADM1",
+    "universal differential equations",
+    "scientific machine learning",
+    "hybrid modeling",
+    "biogas",
+]
+authors = [
+    { name = "Tim Wollschläger", email = "twollschlaeg@uos.de" },
+    { name = "Tim Römer" },
+    { name = "Christiane Herrmann" },
+    { name = "Andreas Focks" },
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+dependencies = [
+    "jax>=0.7,<0.8",
+    "jaxlib>=0.7,<0.8",
+    "equinox>=0.13",
+    "diffrax>=0.7",
+    "optax>=0.2.6",
+    "orbax-checkpoint>=0.11",
+    "jaxtyping>=0.3",
+    "numpy>=2.0",
+    "scipy>=1.13",
+    "pandas>=2.2",
+    "matplotlib>=3.9",
+    "torch>=2.4",          # used only for Dataset/DataLoader plumbing
+    "tqdm>=4.66",
+    "openpyxl>=3.1",       # reading the raw reactor spreadsheets
+]
+
+[project.optional-dependencies]
+tuning = ["optuna>=4.0"]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[project.urls]
+Repository = "https://github.com/twollschlaeg/hybrid-adm1"
+
+[tool.setuptools.packages.find]
+include = ["adm1_package*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+    "requires_data: needs the experimental reactor data, which are not redistributed",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = [
+    "E501",   # long lines are common in the stoichiometric matrices
+    "B008",   # default-argument factories are used deliberately in the model classes
+]

@@ -1,0 +1,11 @@
+{
+  "description": "As fold_calibrated, with a narrow network: it corrects only the carbohydrate hydrolysis (k_hyd_ch, f_ch), within a factor of two of the calibration (bound log 2), and a correction penalty pulls it back toward the calibration. The protein fraction and the decay rates stay calibrated.",
+  "correction": {"parametrization": "calibrated", "prune": true, "physics": [], "references": {},
+                 "corrected": ["f_ch", "k_hyd_ch"], "bound": 0.6931471805599453, "exact_anchors": true},
+  "initial_state": "calibrated",
+  "spin_up_days": 30.0,
+  "split_network": true,
+  "calibration": "per-fold",
+  "correction_penalty": 0.1,
+  "keep_checkpoints": false
+}

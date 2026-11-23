@@ -1,0 +1,24 @@
+name: hybrid-adm1
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - pip
+  - numpy>=2.0
+  - scipy>=1.13
+  - pandas>=2.2
+  - matplotlib>=3.9
+  - openpyxl>=3.1
+  - tqdm>=4.66
+  - pytest>=8.0
+  - pip:
+      - jax>=0.7,<0.8
+      - jaxlib>=0.7,<0.8
+      - equinox>=0.13
+      - diffrax>=0.7
+      - optax>=0.2.6
+      - orbax-checkpoint>=0.11
+      - jaxtyping>=0.3
+      - optuna>=4.0
+      - torch>=2.4
+      - -e .

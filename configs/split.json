@@ -1,0 +1,51 @@
+{
+  "note": "Canonical split for the ADM1-UDE study. The folds are used for both cross-validated training and hyperparameter selection. There is no hold-out test set: the same folds inform hyperparameter selection and the reported scores, so those scores are a mildly optimistic estimate of performance on an unseen reactor.",
+  "seed": 42,
+  "stratified": true,
+  "k_folds": 5,
+  "all_labels": [
+    "LaRA-substrate_F1",
+    "LaRA-substrate_F2",
+    "LaRA-substrate_F3",
+    "LaRA-substrate_F4",
+    "LaRA-substrate_F5",
+    "LaRA-substrate_F6",
+    "LaRA-temp_F1",
+    "LaRA-temp_F2",
+    "LaRA-temp_F3",
+    "LaRA-temp_F4",
+    "LaRA-temp_F5",
+    "LaRA-temp_F6",
+    "rice-bran_R30",
+    "rice-bran_R60",
+    "rice-bran_R90"
+  ],
+  "test": [],
+  "folds": {
+    "fold_1": [
+      "LaRA-substrate_F1",
+      "LaRA-substrate_F4",
+      "LaRA-temp_F4"
+    ],
+    "fold_2": [
+      "LaRA-substrate_F3",
+      "LaRA-temp_F3",
+      "LaRA-temp_F6"
+    ],
+    "fold_3": [
+      "LaRA-substrate_F6",
+      "LaRA-temp_F5",
+      "rice-bran_R30"
+    ],
+    "fold_4": [
+      "LaRA-substrate_F5",
+      "LaRA-temp_F1",
+      "rice-bran_R90"
+    ],
+    "fold_5": [
+      "LaRA-substrate_F2",
+      "LaRA-temp_F2",
+      "rice-bran_R60"
+    ]
+  }
+}

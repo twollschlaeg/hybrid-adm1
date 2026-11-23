@@ -1,0 +1,13 @@
+{
+  "description": "fold_fast_narrow_tan for R2 and R3, with pH scored but not fitted, as fold_calibrated_narrow_no_ph is. R2 and R3 only: R4 has no pH output.",
+  "correction": {"parametrization": "calibrated", "prune": true, "physics": ["arrhenius", "tan_inflow"], "references": {},
+                 "corrected": ["f_ch", "k_hyd_ch", "f_TAN_in"], "bound": 0.6931471805599453, "exact_anchors": true},
+  "initial_state": "calibrated",
+  "spin_up_days": 30.0,
+  "split_network": true,
+  "calibration": "per-fold",
+  "calibration_bounds": {"k_hyd_ch": [0.1, 2.88]},
+  "correction_penalty": 0.1,
+  "keep_checkpoints": false,
+  "objective_weights": {"pH": 0.0}
+}

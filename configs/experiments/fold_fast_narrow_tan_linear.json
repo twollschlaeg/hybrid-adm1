@@ -1,0 +1,14 @@
+{
+  "description": "The linear baseline: fold_fast_narrow_tan with each network a single linear layer and no dropout. Anchors, links, bounds, penalty and loss stay the same. The corrections become a linear map of the inputs. Does the correction need a network?",
+  "correction": {"parametrization": "calibrated", "prune": true, "physics": ["arrhenius", "tan_inflow"], "references": {},
+                 "corrected": ["f_ch", "k_hyd_ch", "f_TAN_in"], "bound": 0.6931471805599453, "exact_anchors": true},
+  "initial_state": "calibrated",
+  "spin_up_days": 30.0,
+  "split_network": true,
+  "calibration": "per-fold",
+  "calibration_bounds": {"k_hyd_ch": [0.1, 2.88]},
+  "correction_penalty": 0.1,
+  "keep_checkpoints": false,
+  "depth": 1,
+  "dropout_rate": 0.0
+}

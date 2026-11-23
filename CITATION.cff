@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+title: >-
+  hybrid-adm1: Universal Differential Equation models for the anaerobic
+  digestion process under dynamic operating conditions
+message: If you use this software, please cite both the software and the paper.
+type: software
+authors:
+  - given-names: Tim
+    family-names: Wollschläger
+    email: twollschlaeg@uos.de
+    affiliation: >-
+      Joint Lab AI & DS / Institute of Mathematics, Osnabrück University
+  - given-names: Tim
+    family-names: Römer
+    affiliation: Joint Lab AI & DS, Osnabrück University
+  - given-names: Christiane
+    family-names: Herrmann
+    affiliation: Leibniz Institute for Agricultural Engineering and Bioeconomy (ATB)
+  - given-names: Andreas
+    family-names: Focks
+    affiliation: >-
+      Joint Lab AI & DS / Institute of Mathematics / Institute of Environmental
+      Systems Research, Osnabrück University
+license: MIT
+version: 1.0.0
+repository-code: https://github.com/twollschlaeg/hybrid-adm1
+
+preferred-citation:
+  type: article
+  title: >-
+    Universal Differential Equation Models for the Anaerobic Digestion Process
+    under Dynamic Operating Conditions
+  authors:
+    - given-names: Tim
+      family-names: Wollschläger
+    - given-names: Tim
+      family-names: Römer
+    - given-names: Christiane
+      family-names: Herrmann
+    - given-names: Andreas
+      family-names: Focks
+  status: submitted
+  journal: Chemical Engineering Journal
+  year: 2026

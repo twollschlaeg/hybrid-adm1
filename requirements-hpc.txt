@@ -1,0 +1,50 @@
+# Dependencies for a CPU-only cluster run (hyperparameter search, fold
+# training). Build the environment with scripts/hpc/setup_env.sh, or by hand:
+#
+#   python3.12 -m venv "$PROJECT/envs/hybrid-adm1"
+#   "$PROJECT/envs/hybrid-adm1/bin/pip" install -r requirements-hpc.txt
+#
+# Notes, all of which matter on a login node:
+#
+#   * torch comes from PyTorch's CPU index below. The default PyPI wheel for
+#     Linux x86_64 is the CUDA build -- roughly 2.5 GB of wheels plus a dozen
+#     nvidia-* packages -- and this project uses torch only for the Dataset and
+#     DataLoader plumbing. A `+cpu` local version sorts ABOVE the plain PyPI
+#     version under PEP 440, so with the extra index pip prefers the CPU wheel
+#     on its own and pulls in no nvidia-* packages at all. No pin is needed.
+#   * jax needs no such treatment: the PyPI jax/jaxlib wheels are already
+#     CPU-only, GPU support being the separate jax[cuda12] extra.
+#   * matplotlib stays, because scripts/evaluate.py imports it transitively
+#     through pandas plotting helpers.
+#   * The project itself is NOT installed. Cluster home directories are
+#     frequently read-only from compute nodes, and an editable install writes
+#     on import. scripts/_bootstrap.py puts the repository on sys.path instead,
+#     so running `python scripts/...` from the repository root needs no install.
+
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+numpy>=2.0
+scipy>=1.13
+pandas>=2.2
+matplotlib>=3.9
+openpyxl>=3.1
+tqdm>=4.66
+pytest>=8.0
+
+# The JAX stack.
+jax>=0.7,<0.8
+jaxlib>=0.7,<0.8
+equinox>=0.13
+diffrax>=0.7
+optax>=0.2.6
+orbax-checkpoint>=0.11
+jaxtyping>=0.3
+
+# CPU wheel, via the extra index above.
+torch>=2.4
+
+optuna>=4.0
+# Optuna's journal storage is the file-based backend that survives a shared
+# filesystem; SQLite does not. See scripts/hpc/README.md.
+alembic
+sqlalchemy>=1.4

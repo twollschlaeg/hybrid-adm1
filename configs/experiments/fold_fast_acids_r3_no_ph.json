@@ -1,0 +1,13 @@
+{
+  "description": "fold_fast_narrow_tan_no_ph for R3 with the maximum growth rate of the acetate degraders k_m_ac corrected as well, within the same factor of two: what correcting the kinetics that R3 adds to R4 does. R3 only (R2: fold_fast_acids_r2_no_ph).",
+  "correction": {"parametrization": "calibrated", "prune": true, "physics": ["arrhenius", "tan_inflow"], "references": {},
+                 "corrected": ["f_ch", "k_hyd_ch", "k_m_ac", "f_TAN_in"], "bound": 0.6931471805599453, "exact_anchors": true},
+  "initial_state": "calibrated",
+  "spin_up_days": 30.0,
+  "split_network": true,
+  "calibration": "per-fold",
+  "calibration_bounds": {"k_hyd_ch": [0.1, 2.88]},
+  "correction_penalty": 0.1,
+  "keep_checkpoints": false,
+  "objective_weights": {"pH": 0.0}
+}

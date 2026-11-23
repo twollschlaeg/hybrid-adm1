@@ -1,0 +1,51 @@
+# ---------------------------------------------------------------------------
+# Experimental data
+# ---------------------------------------------------------------------------
+# The reactor data are not redistributed with this repository (see README).
+# Place them under data/ locally; the loaders expect the layout documented in
+# data/README.md.
+# Exclude the contents, not the directory itself, so the layout documentation
+# stays tracked (git does not descend into an excluded directory).
+data/*
+!data/README.md
+
+# ---------------------------------------------------------------------------
+# Run artifacts
+# ---------------------------------------------------------------------------
+checkpoints/
+runs/
+logs/
+plots/
+evaluations/
+notebooks/
+*.db
+*.sqlite3
+optuna_*.log
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+build/
+dist/
+.eggs/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------------------
+# Editors / OS
+# ---------------------------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Stray trainer output if a log_dir is ever left relative
+fold_*/
